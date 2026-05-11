@@ -45,5 +45,7 @@ const objects = [
 const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '?', '+', '=', '~'];      
 
 btn.addEventListener('click', function () {
-    password.textContent = animals[Math.floor(Math.random() * animals.length)] + colors[Math.floor(Math.random() * colors.length)] + objects[Math.floor(Math.random() * objects.length)] + symbols[Math.floor(Math.random() * symbols.length)]
+    password.textContent = '';
+    void password.offsetWidth;
+    password.textContent = animals[Math.floor(Math.random() * animals.length)] + colors[Math.floor(Math.random() * colors.length)] + objects[Math.floor(Math.random() * objects.length)] + symbols[Math.floor(Math.random() * symbols.length)];
 })
