@@ -75,7 +75,8 @@ h1::before {
     color: rgba(0, 255, 140, 0.35);
 }
 
-#btn {
+#btn,
+#copy-btn {
     display: block;
     width: 100%;
     padding: 1rem 2rem;
@@ -93,7 +94,8 @@ h1::before {
     overflow: hidden;
 }
 
-#btn::before {
+#btn::before,
+#copy-btn::before {
     content: '';
     position: absolute;
     top: 0; left: -100%;
@@ -103,18 +105,20 @@ h1::before {
     transition: left 0.4s ease;
 }
 
-#btn:hover {
+#btn:hover, #copy-btn:hover {
     background: rgba(0, 255, 140, 0.08);
     border-color: #00ff8c;
     color: #fff;
     box-shadow: 0 0 20px rgba(0, 255, 140, 0.15);
 }
 
-#btn:hover::before {
+#btn:hover::before,
+#copy-btn::before {
     left: 100%;
 }
 
-#btn:active {
+#btn:active,
+#copy-btn:active {
     transform: scale(0.98);
 }
 
@@ -146,4 +150,11 @@ h1::before {
     60%  { transform: translateX(2px);  color: #fff; }
     75%  { transform: translateX(-1px); color: #00ff8c; }
     100% { transform: translateX(0);    color: #00ff8c; }
+}
+
+/* Checks */
+.checkbox{
+    text-transform: uppercase;
+    padding-top: 20px;
+    
 }

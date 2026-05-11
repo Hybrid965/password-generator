@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +9,25 @@
     <link rel="icon" type="image/png" href="assets/images/spyware.png">
     <title>Password Generator</title>
 </head>
+
 <body>
     <main>
         <section>
             <div>
                 <h1>Welcome press the button to generate a password</h1>
                 <button id="btn">Press me</button>
+                <div class="checkbox">
+                    <input type="checkbox" id="symbol-check">
+                    <label>Symbols</label>
+                </div>
                 <p id="generated-password"></p>
+                <button id="copy-btn">Copy to clipboard</button>
+                <p id="copied"></p>
             </div>
         </section>
     </main>
-    
+
 </body>
 <script src="assets/js/app.js"></script>
+
 </html>
