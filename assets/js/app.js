@@ -1,4 +1,4 @@
-// Variables
+// DOM Variables
 const btn = document.getElementById('btn');
 const symbolCheck = document.getElementById('symbol-check');
 const copy = document.getElementById('copy-btn')
@@ -49,36 +49,43 @@ const objects = [
 
 const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '?', '+', '=', '~'];
 
+//Random Function
+function getRandom(arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
+}
 
-
-
+// Event Listener for Generate Password
 btn.addEventListener('click', function () {
-    // Resets the CSS animation 
-    void password.offsetWidth;
+    
     // Clears the copy to clipboard text displayed on the DOM
     copied.textContent = ''
     // Resets the password box when pressing the button a second time
     password.textContent = '';
+    // Resets the CSS animation 
+    void password.offsetWidth;
+
+
+    let newPassword = getRandom(animals) + getRandom(objects) + getRandom(colors);
 
     // Symbol Check 
     if (symbolCheck.checked) {
-        return password.textContent = animals[Math.floor(Math.random() * animals.length)] + colors[Math.floor(Math.random() * colors.length)] + objects[Math.floor(Math.random() * objects.length)] + symbols[Math.floor(Math.random() * symbols.length)]
-    } else {
-
-        return password.textContent = animals[Math.floor(Math.random() * animals.length)] + colors[Math.floor(Math.random() * colors.length)] + objects[Math.floor(Math.random() * objects.length)];
+        newPassword += getRandom(symbols)
     }
-
+        password.textContent = newPassword
     
+
 })
-
-
-copy.addEventListener('click', function(){
+// Event Listener for Copy button
+copy.addEventListener('click', function () {
     navigator.clipboard.writeText(password.textContent)
-    .then(function() {
-        copied.textContent = "Copied to clipboard";
+        .then(function () {
+            copied.textContent = "Copied to clipboard";
 
-    })
+        })
 })
+
+
+
 
 
 
