@@ -2,6 +2,7 @@
 const btn = document.getElementById('btn');
 const symbolCheck = document.getElementById('symbol-check');
 const char = document.getElementById('char-check')
+const random = document.getElementById('random-check')
 const num = document.getElementById('num-check')
 const copy = document.getElementById('copy-btn')
 let copied = document.getElementById('copied')
@@ -55,8 +56,25 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 
     61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
     81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100];
 
+const letters = ["a", "b", "c", "d", "e",
+    "f", "g", "h", "i", "j",
+    "k", "l", "m", "n", "o",
+    "p", "q", "r", "s", "t",
+    "u", "v", "w", "x", "y", "z"];
+
 const symbols = ['!', '@', '#', '$', '%', '^', '&', '*', '?', '+', '=', '~'];
 
+// Function for random letters 
+function rand(letters) {
+    let result = ''
+    for (let j = 0; j < 7; j++) {
+        let randIndex = Math.floor(Math.random() * letters.length);
+        result += letters[randIndex]
+        result += numbers[randIndex]
+    }
+    return result
+
+}
 //Random Function
 function getRandom(arr) {
     return arr[Math.floor(Math.random() * arr.length)]
@@ -80,17 +98,23 @@ btn.addEventListener('click', function () {
         newPassword = getRandom(animals) + getRandom(numbers) + getRandom(objects) + getRandom(numbers) + getRandom(colors) + getRandom(numbers);
     }
 
-    // Symbol Check 
-    if (symbolCheck.checked) {
-        newPassword += getRandom(symbols)
-    }
+
 
     // Character check
     if (char.checked && newPassword.length < 15) {
         newPassword += getRandom(animals)
     }
 
+    //Random Check
+    if (random.checked) {
+        newPassword = rand(letters)
 
+    }
+
+    // Symbol Check 
+    if (symbolCheck.checked) {
+        newPassword += getRandom(symbols)
+    }
 
     password.textContent = newPassword
 
@@ -104,6 +128,7 @@ copy.addEventListener('click', function () {
 
         })
 })
+
 
 
 
